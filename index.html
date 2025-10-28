@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./src/style.css">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="game">
+        <div id="real" class="world">
+            <div id="player" class="player"></div>
+            <div id="realGoal" class="goal"></div>
+            <div id="realOb1" class="obstacle"></div>
+            <div id="realOb2" class="obstacle"></div>
+        </div>
+
+        <div id="mirror" class="world">
+            <div id="mirrorPlayer" class="player"></div>
+            <div id="mirrorGoal" class="goal"></div>
+            <div id="mirrorOb1" class="obstacle"></div>
+            <div id="mirrorOb2" class="obstacle"></div>
+        </div>
+
+        <div id="status"></div>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>

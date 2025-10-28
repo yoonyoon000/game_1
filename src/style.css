@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    background-color: #111;
+}
+
+#game {
+    width: 800px;
+    height: 600px;
+    margin: 40px auto;
+    position: relative;
+    border: 2px solid #555;
+    background-color: #111;
+    overflow: hidden;
+}
+
+#real {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #2c2c2c;
+}
+
+#mirror {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #0d0f19;
+    overflow: hidden;
+}
+
+#mirror .player,
+#mirror .obstacle,
+#mirror .goal {
+    transform: translateY(-300px);
+}
+
+.divider {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #444;
+    box-shadow: 0 0 10px #000;
+    transform: translateY(-50%);
+    z-index: 5;
+}
+
+.player,
+.obstacle,
+.goal {
+    position: absolute;
+}
+
+.player {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+#player {
+    background-color: #fff;
+}
+
+#mirrorPlayer {
+    background-color: #66ccff;
+}
+
+.obstacle {
+    width: 40px;
+    height: 40px;
+    background-color: #c33;
+    border-radius: 4px;
+    box-shadow: 0 0 8px #f33;
+}
+
+.goal {
+    width: 25px;
+    height: 25px;
+    background-color: #0f0;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #0f0;
+}
+
+#status {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 28px;
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+    text-shadow: 0 0 8px black;
+    z-index: 10;
+}
