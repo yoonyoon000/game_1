@@ -167,7 +167,7 @@ body {
     height: 100vh;
 }
 
-.backBtn1 {
+#backBtn {
     display: flex;
     justify-content: center;
     align-items: center;
