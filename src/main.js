@@ -1,3 +1,18 @@
+const DESIGN_W = 800;
+const DESIGN_H = 600;
+let GAME_SCALE = 1;
+
+function fitToScreen() {
+    const s = Math.min(window.innerWidth / DESIGN_W, window.innerHeight / DESIGN_H);
+    GAME_SCALE = s;
+    const root = document.getElementById('gameRoot');
+    if (root) root.style.transform = `scale(${s})`;
+}
+
+window.addEventListener('resize', fitToScreen);
+fitToScreen();
+
+
 const player = document.querySelector("#player");
 const mirror = document.querySelector("#mirrorPlayer");
 const realGoal = document.querySelector("#realGoal");
@@ -46,8 +61,8 @@ player.addEventListener("pointerdown", (e) => {
 player.addEventListener("pointermove", (e) => {
     if (!dragging || gameOver || gameClear) return;
 
-    const dx = e.clientX - last.x;
-    const dy = e.clientY - last.y;
+    const dx = (e.clientX - last.x) / GAME_SCALE;
+    const dy = (e.clientY - last.y) / GAME_SCALE;
     last.x = e.clientX;
     last.y = e.clientY;
 
