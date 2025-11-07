@@ -167,20 +167,19 @@ body {
     height: 100vh;
 }
 
-.backBtn {
+.backBtn1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
+    width: 50px;
     text-align: center;
-    height: 40px;
+    height: 20px;
     margin-top: 60px;
     border: 2px solid white;
-    border-radius: 12px;
+    border-radius: 6px;
     color: white;
     font-weight: bold;
-    font-size: 18px;
-    letter-spacing: 2px;
+    font-size: 10px;
 }
 
 #game,
@@ -277,4 +276,48 @@ button {
     font-size: 16px;
     transition: background 0.2s, transform 0.2s;
     z-index: 1000;
+}
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#fitScreen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100svh;
+}
+
+#gameRoot {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    transform-origin: center center;
+
+    #real,
+    #mirror {
+        position: absolute;
+        left: 0;
+        width: 800px;
+        height: 300px;
+    }
+
+    #real {
+        top: 0;
+    }
+
+    #mirror {
+        top: 300px;
+    }
 }

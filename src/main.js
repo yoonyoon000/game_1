@@ -8,10 +8,10 @@ function fitToScreen() {
     const root = document.getElementById('gameRoot');
     if (root) root.style.transform = `scale(${s})`;
 }
-
 window.addEventListener('resize', fitToScreen);
 fitToScreen();
 
+document.addEventListener('touchmove', (e) => { e.preventDefault(); }, { passive: false });
 
 const player = document.querySelector("#player");
 const mirror = document.querySelector("#mirrorPlayer");
