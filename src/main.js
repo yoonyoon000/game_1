@@ -99,9 +99,23 @@ function update() {
         collision(mirrorPos, mirrorGoalPos, 20, 25, 25)
     ) {
         gameClear = true;
-        statusText.innerHTML = 'LEVEL CLEAR!<br><button id="next" class="gameBtn">Next</button>';
-        document.getElementById("next").onclick = () => (location.href = "level.html");
+
+        const currentPage = window.location.pathname.split("/").pop();
+
+        if (currentPage === "level3.html") {
+            statusText.innerHTML = `
+      🎉 GAME COMPLETE! 🎉<br><br>
+      <a href="start.html" class="gameBtn">Home</a>
+    `;
+        } else {
+            statusText.innerHTML = `
+      LEVEL CLEAR!<br>
+      <button id="next" class="gameBtn">next</button>
+    `;
+            document.getElementById("next").onclick = () => (location.href = "level" + (parseInt(currentPage.match(/\d+/)) + 1) + ".html");
+        }
     }
+
 }
 
 function loop() {
