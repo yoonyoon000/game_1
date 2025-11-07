@@ -1,5 +1,11 @@
 body {
     margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color: #111;
 }
 
@@ -100,11 +106,69 @@ body {
 }
 
 #start {
-    position: absolute;
-    width: 200px;
-    height: 40px;
-    text-align: center;
-    top: 50%;
+    color: #fff;
+    font-weight: bold;
     font-size: 28px;
-    text-shadow: 0 0 8px black;
+    padding: 14px 50px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    letter-spacing: 2px;
+
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+#title {
+    font-size: 64px;
+    font-weight: 900;
+    margin-bottom: 60px;
+    letter-spacing: 4px;
+    color: #fff;
+}
+
+.level {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 80px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.level-btn {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.backBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    text-align: center;
+    height: 40px;
+    margin-top: 60px;
+    border: 2px solid white;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 2px;
 }
