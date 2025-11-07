@@ -124,11 +124,22 @@ function update() {
     `;
         } else {
             statusText.innerHTML = `
-      LEVEL CLEAR!<br>
-      <button id="next" class="gameBtn">next</button>
-    `;
-            document.getElementById("next").onclick = () => (location.href = "start" + (parseInt(currentPage.match(/\d+/)) + 1) + ".html");
+    LEVEL CLEAR!<br>
+    <button id="next" class="gameBtn">next</button>
+  `;
+
+            const currentPage = window.location.pathname.split("/").pop();
+            let nextPage;
+
+            if (currentPage === "start.html") nextPage = "start2.html";
+            else {
+                const num = parseInt(currentPage.match(/\d+/)) || 1;
+                nextPage = `start${num + 1}.html`;
+            }
+
+            document.getElementById("next").onclick = () => (location.href = nextPage);
         }
+
     }
 
 }
