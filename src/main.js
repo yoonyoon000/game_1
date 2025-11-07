@@ -127,7 +127,7 @@ function update() {
       LEVEL CLEAR!<br>
       <button id="next" class="gameBtn">next</button>
     `;
-            document.getElementById("next").onclick = () => (location.href = "level" + (parseInt(currentPage.match(/\d+/)) + 1) + ".html");
+            document.getElementById("next").onclick = () => (location.href = "start" + (parseInt(currentPage.match(/\d+/)) + 1) + ".html");
         }
     }
 
