@@ -2,60 +2,37 @@ const player = document.querySelector("#player");
 const mirror = document.querySelector("#mirrorPlayer");
 const realGoal = document.querySelector("#realGoal");
 const mirrorGoal = document.querySelector("#mirrorGoal");
-const obstacles = [
-    document.querySelector("#realOb1"),
-    document.querySelector("#realOb2"),
-    document.querySelector("#mirrorOb1"),
-    document.querySelector("#mirrorOb2"),
-];
 const statusText = document.querySelector("#status");
 
 let gameOver = false;
 let gameClear = false;
 
 let playerPos = { x: 100, y: 200 };
-let mirrorPos = { x: 700, y: 400 };
+let mirrorPos = { x: 675, y: 425 };
 
 let realGoalPos = { x: 700, y: 200 };
-let mirrorGoalPos = { x: 100, y: 400 };
-
-let realObs1 = { x: 400, y: 190 };
-let realObs2 = { x: 500, y: 190 };
-let mirrorObs1 = { x: 400, y: 370 };
-let mirrorObs2 = { x: 500, y: 370 };
-
-//드래그하는거
-const game = document.getElementById("game");
-let dragging = false;
-let last = { x: 0, y: 0 };
-
-function clampPlayer() {
-    playerPos.x = Math.max(0, Math.min(780, playerPos.x));
-    playerPos.y = Math.max(0, Math.min(280, playerPos.y));
-    mirrorPos.x = Math.max(0, Math.min(780, mirrorPos.x));
-    mirrorPos.y = Math.max(300, Math.min(580, mirrorPos.y));
-}
+let mirrorGoalPos = { x: 75, y: 425 };
 
 function setPositions() {
     player.style.left = `${playerPos.x}px`;
     player.style.top = `${playerPos.y}px`;
     mirror.style.left = `${mirrorPos.x}px`;
     mirror.style.top = `${mirrorPos.y}px`;
-
-    document.querySelector("#realOb1").style.left = `${realObs1.x}px`;
-    document.querySelector("#realOb1").style.top = `${realObs1.y}px`;
-    document.querySelector("#realOb2").style.left = `${realObs2.x}px`;
-    document.querySelector("#realOb2").style.top = `${realObs2.y}px`;
-    document.querySelector("#mirrorOb1").style.left = `${mirrorObs1.x}px`;
-    document.querySelector("#mirrorOb1").style.top = `${mirrorObs1.y}px`;
-    document.querySelector("#mirrorOb2").style.left = `${mirrorObs2.x}px`;
-    document.querySelector("#mirrorOb2").style.top = `${mirrorObs2.y}px`;
-
     realGoal.style.left = `${realGoalPos.x}px`;
     realGoal.style.top = `${realGoalPos.y}px`;
     mirrorGoal.style.left = `${mirrorGoalPos.x}px`;
     mirrorGoal.style.top = `${mirrorGoalPos.y}px`;
 }
+
+function clamp() {
+    playerPos.x = Math.max(0, Math.min(780, playerPos.x));
+    playerPos.y = Math.max(0, Math.min(280, playerPos.y));
+    mirrorPos.x = Math.max(0, Math.min(780, mirrorPos.x));
+    mirrorPos.y = Math.max(300, Math.min(580, mirrorPos.y));
+}
+
+let dragging = false;
+let last = { x: 0, y: 0 };
 
 player.addEventListener("pointerdown", (e) => {
     if (gameOver || gameClear) return;
@@ -76,22 +53,25 @@ player.addEventListener("pointermove", (e) => {
 
     playerPos.x += dx;
     playerPos.y += dy;
-
     mirrorPos.x -= dx;
     mirrorPos.y -= dy;
 
-    clampPlayer();
+    clamp();
     setPositions();
 });
-//여기까지
 
-//부딪혔을때
-player.addEventListener("pointerup", () => {
-    dragging = false;
-});
-player.addEventListener("pointercancel", () => {
-    dragging = false;
-});
+const stopDrag = () => (dragging = false);
+player.addEventListener("pointerup", stopDrag);
+player.addEventListener("pointercancel", stopDrag);
+player.addEventListener("pointerleave", stopDrag);
+
+const obstacles = Array.from(document.querySelectorAll(".obstacle"));
+const obstacleRects = obstacles.map(el => ({
+    x: el.offsetLeft,
+    y: el.offsetTop,
+    w: el.offsetWidth,
+    h: el.offsetHeight
+}));
 
 function collision(a, b, sizeA, sizeBw, sizeBh) {
     return (
@@ -105,10 +85,10 @@ function collision(a, b, sizeA, sizeBw, sizeBh) {
 function update() {
     if (gameOver || gameClear) return;
 
-    for (let o of [realObs1, realObs2, mirrorObs1, mirrorObs2]) {
-        if (collision(playerPos, o, 20, 40, 40) || collision(mirrorPos, o, 20, 40, 40)) {
+    for (const r of obstacleRects) {
+        if (collision(playerPos, r, 20, r.w, r.h) || collision(mirrorPos, r, 20, r.w, r.h)) {
             gameOver = true;
-            statusText.innerHTML = 'GAME OVER<br><button id="retry">Retry</button>';
+            statusText.innerHTML = 'GAME OVER<br><button id="retry" class="gameBtn">Retry</button>';
             document.getElementById("retry").onclick = () => location.reload();
             return;
         }
@@ -119,7 +99,7 @@ function update() {
         collision(mirrorPos, mirrorGoalPos, 20, 25, 25)
     ) {
         gameClear = true;
-        statusText.innerHTML = 'LEVEL CLEAR!<br><button id="next">Next</button>';
+        statusText.innerHTML = 'LEVEL CLEAR!<br><button id="next" class="gameBtn">Next</button>';
         document.getElementById("next").onclick = () => (location.href = "level.html");
     }
 }

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./src/style.css">
+    <title>Title</title>
+</head>
+
+<body>
+    <a href="level.html" id="backBtn">BACK</a>
+
+    <div id="game">
+        <div id="real" class="world">
+            <div id="player" class="player"></div>
+            <div id="realGoal" class="goal"></div>
+            <div class="obstacle" style="left:350px; top:0px"></div>
+            <div class="obstacle" style="left:400px; top:0px"></div>
+            <div class="obstacle" style="left:450px; top:0px"></div>
+            <div class="obstacle" style="left:500px; top:0px"></div>
+            <div class="obstacle" style="left:550px; top:0px"></div>
+            <div class="obstacle" style="left:600px; top:0px"></div>
+
+            <div class="obstacle" style="left:350px; top:50px"></div>
+            <div class="obstacle" style="left:400px; top:50px"></div>
+            <div class="obstacle" style="left:600px; top:50px"></div>
+            <div class="obstacle" style="left:700px; top:50px"></div>
+
+            <div class="obstacle" style="left:100px; top:100px"></div>
+            <div class="obstacle" style="left:150px; top:100px"></div>
+            <div class="obstacle" style="left:200px; top:100px"></div>
+            <div class="obstacle" style="left:350px; top:100px"></div>
+            <div class="obstacle" style="left:600px; top:100px"></div>
+            <div class="obstacle" style="left:700px; top:100px"></div>
+
+            <div class="obstacle" style="left:100px; top:150px"></div>
+            <div class="obstacle" style="left:150px; top:150px"></div>
+            <div class="obstacle" style="left:200px; top:150px"></div>
+            <div class="obstacle" style="left:250px; top:150px"></div>
+            <div class="obstacle" style="left:600px; top:150px"></div>
+            <div class="obstacle" style="left:700px; top:150px"></div>
+
+            <div class="obstacle" style="left:150px; top:200px"></div>
+            <div class="obstacle" style="left:200px; top:200px"></div>
+            <div class="obstacle" style="left:250px; top:200px"></div>
+            <div class="obstacle" style="left:450px; top:200px"></div>
+            <div class="obstacle" style="left:600px; top:200px"></div>
+            <div class="obstacle" style="left:650px; top:200px"></div>
+
+            <div class="obstacle" style="left:150px; top:250px"></div>
+            <div class="obstacle" style="left:200px; top:250px"></div>
+            <div class="obstacle" style="left:250px; top:250px"></div>
+            <div class="obstacle" style="left:300px; top:250px"></div>
+            <div class="obstacle" style="left:350px; top:250px"></div>
+            <div class="obstacle" style="left:400px; top:250px"></div>
+            <div class="obstacle" style="left:450px; top:250px"></div>
+            <div class="obstacle" style="left:750px; top:250px"></div>
+
+        </div>
+
+        <div id="mirror" class="world">
+            <div id="mirrorPlayer" class="player"></div>
+            <div id="mirrorGoal" class="goal"></div>
+            <div class="obstacle" style="left:250px; top:300px"></div>
+            <div class="obstacle" style="left:300px; top:300px"></div>
+            <div class="obstacle" style="left:350px; top:300px"></div>
+            <div class="obstacle" style="left:400px; top:300px"></div>
+            <div class="obstacle" style="left:450px; top:300px"></div>
+            <div class="obstacle" style="left:500px; top:300px"></div>
+            <div class="obstacle" style="left:550px; top:300px"></div>
+            <div class="obstacle" style="left:600px; top:300px"></div>
+            <div class="obstacle" style="left:650px; top:300px"></div>
+            <div class="obstacle" style="left:700px; top:300px"></div>
+            <div class="obstacle" style="left:750px; top:300px"></div>
+
+            <div class="obstacle" style="left:150px; top:400px"></div>
+            <div class="obstacle" style="left:250px; top:350px"></div>
+            <div class="obstacle" style="left:750px; top:350px"></div>
+            <div class="obstacle" style="left:550px; top:350px"></div>
+            <div class="obstacle" style="left:600px; top:350px"></div>
+            <div class="obstacle" style="left:750px; top:400px"></div>
+            <div class="obstacle" style="left:550px; top:400px"></div>
+            <div class="obstacle" style="left:600px; top:400px"></div>
+
+            <div class="obstacle" style="left:50px; top:450px"></div>
+            <div class="obstacle" style="left:150px; top:450px"></div>
+            <div class="obstacle" style="left:250px; top:400px"></div>
+            <div class="obstacle" style="left:400px; top:450px"></div>
+            <div class="obstacle" style="left:750px; top:450px"></div>
+            <div class="obstacle" style="left:550px; top:450px"></div>
+            <div class="obstacle" style="left:600px; top:450px"></div>
+
+            <div class="obstacle" style="left:50px; top:500px"></div>
+            <div class="obstacle" style="left:150px; top:500px"></div>
+            <div class="obstacle" style="left:200px; top:500px"></div>
+            <div class="obstacle" style="left:250px; top:500px"></div>
+            <div class="obstacle" style="left:400px; top:500px"></div>
+            <div class="obstacle" style="left:550px; top:500px"></div>
+            <div class="obstacle" style="left:600px; top:500px"></div>
+            <div class="obstacle" style="left:750px; top:500px"></div>
+
+            <div class="obstacle" style="left:150px; top:550px"></div>
+            <div class="obstacle" style="left:200px; top:550px"></div>
+            <div class="obstacle" style="left:250px; top:550px"></div>
+            <div class="obstacle" style="left:300px; top:550px"></div>
+            <div class="obstacle" style="left:350px; top:550px"></div>
+            <div class="obstacle" style="left:400px; top:550px"></div>
+            <div class="obstacle" style="left:450px; top:550px"></div>
+            <div class="obstacle" style="left:750px; top:550px"></div>
+        </div>
+        <div id="levelInfo">
+            <h2>LEVEL 3</h2>
+            <p>흰색 박스를 움직여서 파란색 출구에 닿으세요!</p>
+        </div>
+
+        <div id="status"></div>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>
